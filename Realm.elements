@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectGuid>{3f70b500-83be-4a5e-99b5-ec9ffdb343c8}</ProjectGuid>
+    <OutputType>Import</OutputType>
+    <AssemblyName>Realm</AssemblyName>
+    <SDK>iOS</SDK>
+    <ImportCodeGen>Oxygene</ImportCodeGen>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UIKit" />
+    <Reference Include="Foundation" />
+    <Reference Include="rtl" />
+    <Reference Include="CoreFoundation" />
+    <Reference Include="CoreGraphics" />
+    <ImportFramework Include="Realm\iOS\Realm.framework">
+      <Private>True</Private>
+    </ImportFramework>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Toffee.targets" />
+</Project>
