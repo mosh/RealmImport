@@ -1,21 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="4.0">
   <PropertyGroup>
-    <ProjectGuid>{3f70b500-83be-4a5e-99b5-ec9ffdb343c8}</ProjectGuid>
+    <ProjectGuid>{604CEC10-84D6-4D70-B8AC-6766805FA8E6}</ProjectGuid>
     <OutputType>Import</OutputType>
-    <AssemblyName>Realm</AssemblyName>
-    <SDK>iOS</SDK>
-    <ImportCodeGen>Oxygene</ImportCodeGen>
+    <BinaryName>Realm</BinaryName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Toffee.macOS'">
+    <Mode>Toffee</Mode>
+    <SubMode>macOS</SubMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Toffee.iOS'">
+    <Mode>Toffee</Mode>
+    <SubMode>iOS</SubMode>
+    <SupportMacCatalyst>False</SupportMacCatalyst>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Toffee.tvOS'">
+    <Mode>Toffee</Mode>
+    <SubMode>tvOS</SubMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Toffee.watchOS'">
+    <Mode>Toffee</Mode>
+    <SubMode>watchOS</SubMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Island.macOS'">
+    <Mode>Island</Mode>
+    <SubMode>Darwin</SubMode>
+    <SDK>macOS</SDK>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Island.iOS'">
+    <Mode>Island</Mode>
+    <SubMode>Darwin</SubMode>
+    <SDK>iOS</SDK>
+    <SupportMacCatalyst>False</SupportMacCatalyst>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Island.tvOS'">
+    <Mode>Island</Mode>
+    <SubMode>Darwin</SubMode>
+    <SDK>tvOS</SDK>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Target)' == 'Island.watchOS'">
+    <Mode>Island</Mode>
+    <SubMode>Darwin</SubMode>
+    <SDK>watchOS</SDK>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Reference Include="UIKit" />
-    <Reference Include="Foundation" />
-    <Reference Include="rtl" />
-    <Reference Include="CoreFoundation" />
-    <Reference Include="CoreGraphics" />
-    <ImportFramework Include="Realm\iOS\Realm.framework">
+    <Reference Include="#" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImportFramework Include="Realm/Realm.xcframework">
       <Private>True</Private>
     </ImportFramework>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Toffee.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.targets" />
 </Project>
